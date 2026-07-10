@@ -43,5 +43,5 @@ python infer_onnx.py      # run inference on sample image
 - TensorFlow Lite Converter
 
 ## 🙋 Author
-Su Jinshi CUHK MSc(EE) – Embedded AI / Edge Deployment Track  
+Su, Jinshi CUHK MSc(EE) – Embedded AI / Edge Deployment Track  
 Summer Self-study Project 2026
