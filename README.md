@@ -21,6 +21,14 @@ quantize.py     # Post-training quantization (PyTorch or TFLite)
 infer_onnx.py   # ONNX Runtime inference demo
 requirements.txt
 
+## Project Status
+- [x] Conda env `edgeai` setup
+- [x] PyTorch CPU sanity check passed
+- [ ] ONNX export (WIP)
+- [ ] ONNX Runtime inference
+- [ ] Quantization (INT8)
+- [ ] Deployment on Raspberry Pi / Laptop
+
 ## 🚀 Quick Start
 bash
 pip install -r requirements.txt
