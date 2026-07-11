@@ -22,10 +22,10 @@ infer_onnx.py   # ONNX Runtime inference demo
 requirements.txt
 
 ## Project Status
-- [x] Conda env `edgeai` setup
+- [x] Conda env `edgeai` setup 
 - [x] PyTorch CPU sanity check passed
-- [ ] ONNX export (WIP)
-- [ ] ONNX Runtime inference
+- [x] ONNX export (`export_onnx.py`)
+- [x] ONNX Runtime inference (`infer_onnx.py`)
 - [ ] Quantization (INT8)
 - [ ] Deployment on Raspberry Pi / Laptop
 
