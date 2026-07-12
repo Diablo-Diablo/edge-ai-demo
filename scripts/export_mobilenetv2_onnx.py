@@ -8,7 +8,7 @@ model.eval()
 # 2. 构造示例输入（ImageNet 标准尺寸）
 dummy_input = torch.randn(1, 3, 224, 224)
 
-# 3. 导出 ONNX
+# 3. 导出 ONNX（并强制合并权重）
 torch.onnx.export(
     model,
     dummy_input,
@@ -19,7 +19,9 @@ torch.onnx.export(
         "input": {0: "batch"},
         "output": {0: "batch"}
     },
-    opset_version=12
+    opset_version=17,  
+    dynamo=False,   #这里强制使用内联合并权重
+    do_constant_folding=True
 )
 
 print("✅ mobilenetv2.onnx exported")
