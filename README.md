@@ -22,7 +22,7 @@ conda activate edgeai
 pip install -r requirements.txt
 
 
-## 📂 Project Structure
+## 📂 Project Structure (To Be Perfected)
 edge-ai-demo/
 
 ├── train.py                # PyTorch training script
