@@ -75,7 +75,7 @@ python quantize.py
 
 | Model | Input | Opset | Size (MB) | Top‑1 Prediction | Logit | Inference Time (ms) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 4.46 ±0.12 (ORT CPU, single run) |
+| MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 4.46 (ORT CPU, single run) |
 *(Fill in after running)*
 
 ## 📚 References
