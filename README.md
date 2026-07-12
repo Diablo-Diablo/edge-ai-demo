@@ -26,6 +26,7 @@ requirements.txt
 - [x] PyTorch CPU sanity check passed
 - [x] ONNX export (`export_onnx.py`)
 - [x] ONNX Runtime inference (`infer_onnx.py`)
+- [x] Netron Visualization 
 - [ ] Quantization (INT8)
 - [ ] Deployment on Raspberry Pi / Laptop
 
