@@ -49,7 +49,8 @@ edge-ai-demo/
 - [x] ONNX export (`export_onnx.py`)
 - [x] ONNX Runtime inference (`infer_onnx.py`)
 - [x] Netron Visualization 
-- [ ] Quantization (INT8)
+- [x] Quantization(dynamic) (INT8)
+- [ ] Quantization(static) (INT8)
 - [ ] Deployment benchmark (Raspberry Pi / Laptop)
 
 ## 🚀 Quick Start
