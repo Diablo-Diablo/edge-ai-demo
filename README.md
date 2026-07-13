@@ -33,7 +33,7 @@ edge-ai-demo/
 
 ├── infer_onnx.py           # ONNX Runtime inference demo
 
-├── mobilenetv2.pth         # Trained FP32 model
+├──export_mobilenetv2_onnx.py       # Trained FP32 model
 
 ├── mobilenetv2.onnx        # Exported ONNX model
 
@@ -76,7 +76,14 @@ python quantize.py
 | Model | Input | Opset | Size (MB) | Top‑1 Prediction | Logit | Inference Time (ms) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 4.46 (ORT CPU, single run) |
-*(Fill in after running)*
+| MobileNetV2 (INT8) | `countach.jpg` | 18 (Dynamo) | 3.6 | sports car (817) | 15.8329 | 29.59 (ORT CPU, single run) |
+
+>Note：Dynamic quantization results in slightly higher latency on this CPU / batch size combination.
+
+> This is due to runtime activation quantization overhead and the lightweight nature of MobileNetV2.
+
+> Static quantization or larger batch sizes may yield different results. 
+
 
 ## 📚 References
 - PyTorch ONNX Export: https://pytorch.org/docs/stable/onnx.html
