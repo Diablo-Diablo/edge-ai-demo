@@ -1,0 +1,39 @@
+certifi==2026.6.17
+charset-normalizer==3.4.9
+contourpy @ file:///C:/b/abs_f2u2o_8s9g/croot/contourpy_1732540071787/work
+cycler @ file:///C:/Users/task_176606795043471/croot/cycler_1766068055428/work
+filelock==3.29.0
+fonttools @ file:///C:/Users/task_178107562847860/croot/fonttools_1781075761476/work
+fsspec==2026.4.0
+idna==3.18
+Jinja2==3.1.6
+joblib @ file:///C:/Users/task_176786734930694/croot/joblib_1767868144277/work
+kiwisolver @ file:///C:/miniconda3/conda-bld/kiwisolver_1764159353779/work
+MarkupSafe==3.0.3
+matplotlib==3.10.9
+mkl-service==2.7.2
+mkl_fft @ file:///C:/Users/task_177730052905595/croot/mkl_fft_1777300602408/work
+mkl_random @ file:///C:/Users/task_178236946736054/croot/mkl_random_1782369613178/work
+mpmath==1.3.0
+networkx==3.4.2
+numpy @ file:///C:/Users/task_177619067361524/croot/numpy_and_numpy_base_1776190783928/work/dist/numpy-2.2.5-cp310-cp310-win_amd64.whl#sha256=e129295f25119bbbeb3e2729b744b807f2683581ed661158a4abd7884645f902
+packaging==26.0
+pillow @ file:///C:/Users/task_178098875092084/croot/pillow_1780988952298/work
+pyparsing @ file:///C:/miniconda3/conda-bld/pyparsing_1763973898118/work
+PyQt6==6.11.0
+PyQt6_sip @ file:///C:/Users/task_177582787509982/croot/pyqt-split_1775828391884/work/pyqt_sip
+python-dateutil @ file:///C:/b/abs_3au_koqnbs/croot/python-dateutil_1716495777160/work
+requests==2.34.2
+scikit-learn @ file:///C:/miniconda3/conda-bld/scikit-learn_1764838222225/work
+scipy @ file:///C:/Users/task_177627752328296/croot/scipy_1776277626143/work/dist/scipy-1.15.3-cp310-cp310-win_amd64.whl#sha256=4b31ae66cb62ee7d0d6cb492e8af90b64e32541a8bee52f4e127b96528004419
+sip @ file:///C:/Users/task_177080700866195/croot/sip_1770807604859/work
+six @ file:///C:/b/abs_149wuyuo1o/croot/six_1744271521515/work
+sympy==1.14.0
+threadpoolctl @ file:///C:/miniconda3/conda-bld/threadpoolctl_1764361785970/work
+tomli @ file:///C:/Users/task_176829653256119/croot/tomli_1768296653758/work
+torch==2.13.0+cpu
+torchaudio==2.11.0+cpu
+torchvision==0.28.0+cpu
+tornado @ file:///C:/Users/task_178231409404964/croot/tornado_1782314853640/work
+typing_extensions==4.15.0
+urllib3==2.7.0
