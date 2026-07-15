@@ -9,7 +9,7 @@ import os
 PROJECT_ROOT = r"C:\Users\dd4\edge-ai-demo"
 
 # 拼接路径
-MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "mobilenetv2_quant.onnx")
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "mobilenetv2_quant_static.onnx")
 LABEL_PATH = os.path.join(PROJECT_ROOT, "imagenet_classes.txt")
 IMAGE_PATH = os.path.join(PROJECT_ROOT, "countach.jpg")
 

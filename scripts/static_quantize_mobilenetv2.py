@@ -1,46 +1,63 @@
 import onnx
-from onnxruntime.quantization import quantize_dynamic, QuantType, CalibrationMethod
 import os
-import glob
+from onnxruntime.quantization import (
+    quantize_static,
+    QuantType,
+    QuantFormat,
+    CalibrationDataReader
+)
+from PIL import Image
+import torchvision.transforms as transforms
+import numpy as np
 
-# ---------- 1. 输入/输出路径 ----------
-input_model = "models/mobilenetv2_.onnx"
-output_model = "models/mobilenetv2_quant.onnx"
+# ---------- 强制 CPU 量化环境 ----------
+os.environ["ORT_QUANTIZATION_DEBUG"] = "1"
 
-# ---------- 2. 准备校准数据----------(为静态量化做准备)
-# 用现有的 countach.jpg + 复制几份模拟多张图
-# 实际项目中用 10~50 张真实图片
-calibration_images = []
-os.makedirs("calib_images", exist_ok=True)
+MODEL_PATH = "C:\\Users\\dd4\\edge-ai-demo\\models\\mobilenetv2.onnx"
+OUT_MODEL = "C:\\Users\\dd4\\edge-ai-demo\\models\\mobilenetv2_quant_static.onnx"
+CALIB_DIR = "C:\\Users\\dd4\\edge-ai-demo\\calib_images"
 
-# 复制 countach.jpg 为 10 张校准图
-for i in range(10):
-    img_path = f"calib_images/img_{i}.jpg"
-    if not os.path.exists(img_path):
-        os.system(f"copy countach.jpg {img_path}")  # Windows
-        # Linux/Mac: os.system(f"cp countach.jpg {img_path}")
+onnx_model = onnx.load(MODEL_PATH)
+input_name = onnx_model.graph.input[0].name
 
-calibration_images = glob.glob("calib_images/*.jpg")
+class MyCalibReader(CalibrationDataReader):
+    def __init__(self):
+        self.paths = [
+            os.path.join(CALIB_DIR, f)
+            for f in os.listdir(CALIB_DIR)
+            if f.endswith(".jpg")
+        ]
+        self.idx = 0
+        self.tf = transforms.Compose([
+            transforms.Resize(256),
+            transforms.CenterCrop(224),
+            transforms.ToTensor(),
+            transforms.Normalize([0.485, 0.456, 0.406],
+                                 [0.229, 0.224, 0.225])
+        ])
 
-print(f"📸 校准图片数量: {len(calibration_images)}")
+    def get_next(self):
+        if self.idx >= len(self.paths):
+            return None
+        img = Image.open(self.paths[self.idx]).convert("RGB")
+        x = self.tf(img).unsqueeze(0).numpy()
+        self.idx += 1
+        return {input_name: x}
 
-# ---------- 3. 动态量化（推荐新手）----------
-# 动态量化：只量化权重，激活值运行时动态量化 → 快且稳
-quantize_dynamic(
-    model_input=input_model,
-    model_output=output_model,
-    weight_type=QuantType.QUInt8,           # 量化权重为 UINT8
-    activation_type=QuantType.QUInt8,        # 激活值也量化
-    calibrate_method=CalibrationMethod.MinMax,  # 最简单校准
-    nodes_to_exclude=[],                     # 不排除任何节点
-    extra_options={
-        'EnableSubgraph': False,
-        'ActivationSymmetric': False,
-        'WeightSymmetric': False,
-        'ForceQuantizeNoInputCheck': False,
-    }
+    def rewind(self):
+        self.idx = 0
+
+reader = MyCalibReader()
+
+# ---------- 关键：只保留 weight_type，不写 activation_type ----------
+quantize_static(
+    model_input=MODEL_PATH,
+    model_output=OUT_MODEL,
+    calibration_data_reader=reader,
+    quant_format=QuantFormat.QDQ,
+    activation_type=QuantType.QUInt8,   #需要手动设置at与wt匹配
+    weight_type=QuantType.QUInt8
 )
 
-print(f"✅ 量化完成！输出模型: {output_model}")
-print(f"📦 原模型大小: {os.path.getsize(input_model) / 1024 / 1024:.2f} MB")
-print(f"📦 量化后大小: {os.path.getsize(output_model) / 1024 / 1024:.2f} MB")
+print("✅ 静态量化完成")
+print(f"✅ 量化模型已保存至: {OUT_MODEL}")

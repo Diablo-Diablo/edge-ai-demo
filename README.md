@@ -70,20 +70,22 @@ netron mobilenetv2.onnx
 python infer_onnx.py
 
 ### 5. Quantization (WIP)  [bash]
-python quantize.py
+python quantize_mobilenetv2.py
+python static_quantize_mobilenetv2.py
 
 ## 📊 Results(To Be Updated)
 
-| Model | Input | Opset | Size (MB) | Top‑1 Prediction | Logit | Inference Time (ms) |
+| Model | Input | Opset | Size (MB) | Top‑1 Prediction | Logit | Inference Time (ms)[100 times,AVG] |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 4.46 (ORT CPU, single run) |
-| MobileNetV2 (INT8) | `countach.jpg` | 18 (Dynamo) | 3.6 | sports car (817) | 15.8329 | 29.59 (ORT CPU, single run) |
+| MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 2.731 (ORT CPU) |
+| MobileNetV2_Dyn (INT8) | `countach.jpg` | 18 (Dynamo) | 3.61 | sports car (817) | 15.8329 | 23.852 (ORT CPU) |
+| MobileNetV2_Stat (INT8) | `countach.jpg` | 18 (Dynamo) | 3.58 | sports car (817) | 14.944 | 2.763 (ORT CPU) |
 
 >Note：Dynamic quantization results in slightly higher latency on this CPU / batch size combination.
 
 > This is due to runtime activation quantization overhead and the lightweight nature of MobileNetV2.
 
-> Static quantization or larger batch sizes may yield different results. 
+> INT8 quantization fuses weights and activations into INT8, eliminating runtime conversion overhead. This yields near-FP32 latency (2.76 ms) while reducing model size by 74%.
 
 
 ## 📚 References
