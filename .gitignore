@@ -1,0 +1,14 @@
+# 图片和大数据文件
+*.jpg
+*.jpeg
+*.png
+*.bmp
+calib_images/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 其他
+.DS_Store
+*.log
