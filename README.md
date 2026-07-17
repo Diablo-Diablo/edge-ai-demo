@@ -32,8 +32,8 @@ edge-ai-demo/
 ├── scripts/
 │   ├── export_onnx.py
 │   ├── quantize_dynamic.py            
-│   ├── quantize_static.py              
-│   └── benchmark.py                   #benchmark,100 times 
+│   ├── quantize_static.py             #quantize 
+│   └── benchmark_inference.py                   #benchmark,100 times 
 ├── docs/
 │   └── quantization_notes.md          
 ├── assets/
@@ -49,7 +49,7 @@ edge-ai-demo/
 - [x] ONNX Runtime inference (`infer_onnx.py`)
 - [x] Netron Visualization 
 - [x] Quantization(dynamic) (INT8)
-- [ ] Quantization(static) (INT8)
+- [x] Quantization(static) (INT8)
 - [ ] Deployment benchmark (Raspberry Pi / Laptop)
 
 ## 🚀 Quick Start
