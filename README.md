@@ -26,20 +26,35 @@ pip install -r requirements.txt
 
 edge-ai-demo/
 ├── models/
+
 │   ├── mobilenetv2.onnx               #FP32
+
 │   ├── mobilenetv2_quant.onnx         #Dynamic
+
 │   └── mobilenetv2_quant_static.onnx  #Static
+
 ├── scripts/
+
 │   ├── export_onnx.py
-│   ├── quantize_dynamic.py            
+
+│   ├── quantize_dynamic.py           
+
 │   ├── quantize_static.py             #quantize 
+
 │   └── benchmark_inference.py                   #benchmark,100 times 
+
 ├── docs/
+
 │   └── quantization_notes.md          
-├── assets/
+
+├── assets/(WIP)
+
 │   └── benchmark_results.png          
+
 ├── countach.jpg
+
 ├── imagenet_classes.txt
+
 └── README.md
 
 ## Project Status
@@ -68,11 +83,11 @@ netron mobilenetv2.onnx
 ### 4. Run inference  [bash]
 python infer_onnx.py
 
-### 5. Quantization (WIP)  [bash]
+### 5. Quantization   [bash]
 python quantize_mobilenetv2.py
 python static_quantize_mobilenetv2.py
 
-### 6.Deployment
+### 6.Deployment(WIP)
 >Deployment on edge devices is straightforward:
 
 >the statically quantized ONNX model is self-contained, requiring only ONNX Runtime (CPU) to run—no re-quantization or platform-specific tooling on the target device.
