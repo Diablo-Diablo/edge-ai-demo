@@ -8,7 +8,7 @@ import os
 # ====================== 配置 ======================
 os.environ["ORT_LOG_LEVEL"] = "ERROR"  # 隐藏 warning，让输出干净
 
-PROJECT_ROOT = "C:\\Users\\dd4\\edge-ai-demo"  # 当前目录，或改为你的项目路径
+PROJECT_ROOT = "D:\\edge-ai-demo"  # 当前目录，或改为你的项目路径
 IMAGE_PATH = os.path.join(PROJECT_ROOT, "countach.jpg")
 LABEL_PATH = os.path.join(PROJECT_ROOT, "imagenet_classes.txt")
 
