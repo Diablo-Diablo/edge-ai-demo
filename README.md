@@ -107,7 +107,7 @@ python static_quantize_mobilenetv2.py
 
 See [`docs/quantization_notes.md`](docs/quantization_notes.md) for details.
 
-
+Laptop deployment result: (doscs/deploy_checklist.md)
 
 ## 📚 References
 - PyTorch ONNX Export: https://pytorch.org/docs/stable/onnx.html
