@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ## 📂 Project Structure (To Be Perfected)
 
 edge-ai-demo/
+
 ├── models/
 
 │   ├── mobilenetv2.onnx               #FP32
@@ -41,7 +42,7 @@ edge-ai-demo/
 
 │   ├── quantize_static.py             #quantize 
 
-│   └── benchmark_inference.py                   #benchmark,100 times 
+│   └── benchmark_inference.py         #benchmark,100 times 
 
 ├── docs/
 
