@@ -22,7 +22,7 @@ conda activate edgeai
 pip install -r requirements.txt
 
 
-## 📂 Project Structure (To Be Perfected)
+## 📂 Project Structure (mobilenetv2 for example)
 
 edge-ai-demo/
 
@@ -38,7 +38,7 @@ edge-ai-demo/
 
 │   ├── export_onnx.py
 
-│   ├── quantize_dynamic.py           
+│   ├── quantize_dynamic.py            
 
 │   ├── quantize_static.py             #quantize 
 
@@ -108,7 +108,10 @@ python static_quantize_mobilenetv2.py
 
 See [`docs/quantization_notes.md`](docs/quantization_notes.md) for details.
 
-Laptop deployment result: (doscs/deploy_checklist.md)
+Laptop deployment result: [`docs/deploy_checklist.md`](docs/deploy_checklist.md)
+
+Adjstment note: [`docs/microadjustment_deployment.md`](docs/microadjustment_deployment.md)
+
 
 ## 📚 References
 - PyTorch ONNX Export: https://pytorch.org/docs/stable/onnx.html
