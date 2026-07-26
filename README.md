@@ -66,7 +66,7 @@ edge-ai-demo/
 - [x] Netron Visualization 
 - [x] Quantization(dynamic) (INT8)
 - [x] Quantization(static) (INT8)
-- [ ] Deployment benchmark (Raspberry Pi / Laptop)
+- [x] Deployment benchmark (Raspberry Pi / Laptop)
 
 ## 🚀 Quick Start
 
@@ -95,7 +95,7 @@ python static_quantize_mobilenetv2.py
 
 ## 📊 Results(To Be Updated)
 
-### Quantization
+### Quantization （i5-10400f, 16G DDR4）
 | Model | Input | Opset | Size (MB) | Top‑1 Prediction | Logit | Inference Time (ms)[100 times,AVG] |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | MobileNetV2 (FP32) | `countach.jpg` | 18 (Dynamo) | 13.7 | sports car (817) | 16.5654 | 2.731 (ORT CPU) |
@@ -105,7 +105,7 @@ python static_quantize_mobilenetv2.py
 > ✅ 74% smaller model  
 > ✅ Near-FP32 inference speed  
 > ✅ No runtime quantization overhead  
-
+-
 See [`docs/quantization_notes.md`](docs/quantization_notes.md) for details.
 
 Laptop deployment result: [`docs/deploy_checklist.md`](docs/deploy_checklist.md)
