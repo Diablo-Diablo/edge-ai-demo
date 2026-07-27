@@ -112,6 +112,7 @@ Laptop deployment result: [`docs/deploy_checklist.md`](docs/deploy_checklist.md)
 
 Adjstment note: [`docs/microadjustment_deployment.md`](docs/microadjustment_deployment.md)
 
+Laptop deployment of Efficientnetb0 result: [`docs/effnet_laptop_deploy.md`](docs/effnet_laptop_deploy.md)
 
 ## 📚 References
 - PyTorch ONNX Export: https://pytorch.org/docs/stable/onnx.html
