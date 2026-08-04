@@ -7,5 +7,48 @@
             "envManager": "ms-python.python:conda",
             "packageManager": "ms-python.python:conda"
         }
+    ],
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOCFILE%"]
+        },
+        {
+             "name": "lualatex",
+             "command": "lualatex",
+             "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOCFILE%"]
+       },
+
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": ["%DOCFILE%"]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+         { "name": "PDFLaTeX", "tools": ["pdflatex"] },
+         { "name": "XeLaTeX", "tools": ["xelatex"] },
+         { "name": "LuaLaTeX", "tools": ["lualatex"] },
+         { "name": "PDFLaTeX -> BibTeX -> PDFLaTeX*2", "tools": ["pdflatex","bibtex","pdflatex","pdflatex"] },
+         { "name": "XeLaTeX -> BibTeX -> XeLaTeX*2", "tools": ["xelatex","bibtex","xelatex","xelatex"] }
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot",
+        "*.out", "*.toc", "*.log", "*.fls", "*.fdb_latexmk"
     ]
 }
