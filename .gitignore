@@ -14,5 +14,7 @@ __pycache__/
 *.log
 *.h
 *.json
+*.dll
+*.obj
 
 models/ *.onnx

@@ -94,7 +94,7 @@ std::vector<float> PreprocessImage(const std::string& image_path) {
 
 int main() {
     try {
-        const std::string project_root = "C:\\Users\\dd4\\edge-ai-demo";
+        const std::string project_root = "D:\\edge-ai-demo";
         const std::string model_path = project_root + "\\models\\mobilenetv2.onnx";
         const std::string label_path = project_root + "\\imagenet_classes.txt";
         const std::string image_path = project_root + "\\countach.jpg";
@@ -104,7 +104,8 @@ int main() {
         session_opts.SetIntraOpNumThreads(4);
         session_opts.SetGraphOptimizationLevel(ORT_ENABLE_ALL);
 
-        Ort::Session session(env, model_path.c_str(), session_opts);
+        std::basic_string<ORTCHAR_T> model_path_ort(model_path.begin(), model_path.end());
+        Ort::Session session(env, model_path_ort.c_str(), session_opts);
 
         const auto labels = LoadLabels(label_path);
         const auto input_data = PreprocessImage(image_path);
