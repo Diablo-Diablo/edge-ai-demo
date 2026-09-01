@@ -4,6 +4,7 @@ from PIL import Image
 import torchvision.transforms as transforms
 import time
 import os
+from pathlib import Path
 
 # ====================== 配置 ======================
 os.environ["ORT_LOG_LEVEL"] = "ERROR"  # 隐藏 warning，让输出干净
@@ -11,12 +12,22 @@ os.environ["ORT_LOG_LEVEL"] = "ERROR"  # 隐藏 warning，让输出干净
 PROJECT_ROOT = "D:\\edge-ai-demo"  # 当前目录，或改为你的项目路径
 IMAGE_PATH = os.path.join(PROJECT_ROOT, "countach.jpg")
 LABEL_PATH = os.path.join(PROJECT_ROOT, "imagenet_classes.txt")
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
+MODELS_DIR = PROJECT_ROOT.parent / "models"
+CALIB_DIR = PROJECT_ROOT.parent / "calib_images"
+IMAGE_PATH = PROJECT_ROOT.parent / "countach.jpg"
+LABEL_PATH = PROJECT_ROOT.parent / "imagenet_classes.txt"
+
+FP32_MODEL = MODELS_DIR / "mobilenetv2.onnx"
+STATIC_INT8_MODEL = MODELS_DIR / "mobilenetv2_quant_static.onnx"
+DYNAMIC_INT8_MODEL = MODELS_DIR / "mobilenetv2_quant.onnx"
 
 # 模型路径（根据你的实际情况修改）
 MODELS = {
-    "FP32": "models/mobilenetv2.onnx",
-    "INT8_Static": "models/mobilenetv2_quant_static.onnx",
-    "INT8_Dynamic": "models/mobilenetv2_quant.onnx",   # 如果有可取消注释
+    "FP32": FP32_MODEL,
+    "INT8_Static": STATIC_INT8_MODEL,
+    "INT8_Dynamic": DYNAMIC_INT8_MODEL,
 }
 
 NUM_RUNS = 100          # 重复次数

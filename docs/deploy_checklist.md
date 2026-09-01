@@ -19,9 +19,9 @@
 ## 3. Inference Performance Benchmark (Avg over 100 runs)
 | Precision | Avg Latency | Std Dev | Min / Max | Top-1 Prediction (Sample) |
 | :--- | :--- | :--- | :--- | :--- |
-| **FP32** | 1.437 ms | 2.740 ms | 1.042 / 18.077 ms | sports car (idx=817) |
-| **INT8 Static** | 1.805 ms | 1.484 ms | 14.718 / 23.741 ms | sports car (idx=817) |
-| **INT8 Dynamic** | 15.642 ms | - | - | sports car (idx=817) |
+| **FP32** | 1.250 ms | 0.338 ms | 1.096 / 3.667 ms | sports car (idx=817) |
+| **INT8 Static** | 1.009 ms | 0.295 ms | 0.876 / 2.822 | sports car (idx=817) |
+| **INT8 Dynamic** | 13.876 ms |  0.547ms | 13.384 / 17.185 ms | sports car (idx=817) |
 
 ## 4. Deployment Conclusion
 - **Status**: ✅ Verified & Deployed
