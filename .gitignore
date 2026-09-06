@@ -17,4 +17,4 @@ __pycache__/
 *.dll
 *.obj
 
-models/ *.onnx
+models/ *.onnxedge-ai-demo-venv/

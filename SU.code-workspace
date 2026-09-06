@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../latex"
+		},
+		{
+			"path": "../workplace_ubuntu"
 		}
 	],
 	"settings": {
