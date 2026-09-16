@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
-
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
@@ -93,16 +93,25 @@ std::vector<float> PreprocessImage(const std::string& image_path) {
 }
 }  // namespace
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
-        const std::string project_root = "D:\\edge-ai-demo";
-        const std::string model_path = project_root + "\\models\\mobilenetv2.onnx";
-        const std::string label_path = project_root + "\\imagenet_classes.txt";
-        const std::string image_path = project_root + "\\countach.jpg";
+        if (argc < 4 || argc > 5) {
+            std::cerr << "Usage: " << argv[0]
+                      << " <model.onnx> <labels.txt> <image> [threads]" << std::endl;
+            return 2;
+        }
+
+        const std::string model_path = argv[1];
+        const std::string label_path = argv[2];
+        const std::string image_path = argv[3];
+        const int thread_count = argc == 5 ? std::atoi(argv[4]) : 1;
+        if (thread_count < 1) {
+            throw std::runtime_error("threads must be a positive integer");
+        }
 
         Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "mobilenet-infer");
         Ort::SessionOptions session_opts;
-        session_opts.SetIntraOpNumThreads(4);
+        session_opts.SetIntraOpNumThreads(thread_count);
         session_opts.SetGraphOptimizationLevel(ORT_ENABLE_ALL);
 
         std::basic_string<ORTCHAR_T> model_path_ort(model_path.begin(), model_path.end());

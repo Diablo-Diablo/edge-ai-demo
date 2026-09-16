@@ -66,7 +66,7 @@ edge-ai-demo/
 - [x] Netron Visualization 
 - [x] Quantization(dynamic) (INT8)
 - [x] Quantization(static) (INT8)
-- [x] Deployment benchmark (Raspberry Pi / Laptop)
+- [x] Deployment benchmark (Laptop / WSL)
 
 ## 🚀 Quick Start
 
@@ -113,6 +113,8 @@ Laptop deployment result: [`docs/deploy_checklist.md`](docs/deploy_checklist.md)
 Adjstment note: [`docs/microadjustment_deployment.md`](docs/microadjustment_deployment.md)
 
 Laptop deployment of Efficientnetb0 result: [`docs/effnet_laptop_deploy.md`](docs/effnet_laptop_deploy.md)
+
+Laptop WSL:Ubuntu mobilenetv2 deployment result: [`docs/WSL_Ubuntu_deployment_log.md`](docs/WSL_Ubuntu_deployment_log.md)
 
 ## 📚 References
 - PyTorch ONNX Export: https://pytorch.org/docs/stable/onnx.html
